@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema(
     position:String,
     contract:String,
     Location:String,
-    comapny_logo:String,
+    comapny_logo:String
   }
   
 );

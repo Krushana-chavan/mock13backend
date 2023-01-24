@@ -1,8 +1,8 @@
 const jobmodel = require("../Model/job.model")
 
 const job = async (req,res) =>{
-  try{ const {comapny_name,position,contract,Location,company_logo} = req.body
-    let data = new jobmodel({comapny_name,position,contract,Location,company_logo})
+  try{ const {comapny_name,position,contract,Location,comapny_logo} = req.body
+    let data = new jobmodel({comapny_name,position,contract,Location,comapny_logo})
     await data.save()
     return res.status(201).send("Data saved succefully")
 }catch(e){
@@ -13,7 +13,7 @@ const job = async (req,res) =>{
 const getjob = async (req,res) =>{
     try{
         let data = await jobmodel.find({})
-      return res.status(201).send("Data saved succefully",data)
+      return res.status(200).send(data)
   }catch(e){
       console.log(e)
       }
