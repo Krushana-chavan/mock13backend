@@ -1,0 +1,23 @@
+const jobmodel = require("../Model/job.model")
+
+const job = async (req,res) =>{
+  try{ const {comapny_name,position,contract,Location,company_logo} = req.body
+    let data = new jobmodel({comapny_name,position,contract,Location,company_logo})
+    await data.save()
+    return res.status(201).send("Data saved succefully")
+}catch(e){
+    console.log(e)
+    }
+
+}
+const getjob = async (req,res) =>{
+    try{
+        let data = await jobmodel.find({})
+      return res.status(201).send("Data saved succefully",data)
+  }catch(e){
+      console.log(e)
+      }
+  
+  }
+
+module.exports ={job,getjob}

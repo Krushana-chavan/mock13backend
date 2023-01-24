@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const connet = require("./Config/Mongoose.config");
 const userRoute = require("./Routes/user.rote");
+const jobRoute = require("./Routes/job.router")
 // const bugRoute = require("./Routes/bug.route");
 const port = process.env.PORT;
 const app = express();
@@ -14,7 +15,7 @@ app.get("/", (req, res) => {
 });
 app.use("/user", userRoute);
 // app.use("/bugs", bugRoute);
-
+app.use("/jobdata",jobRoute)
 app.listen(port, () => {
   connet()
     .then(() => console.log("Connected to Database"))
